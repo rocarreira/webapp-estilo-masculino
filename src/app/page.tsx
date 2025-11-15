@@ -113,12 +113,12 @@ export default function LandingPage() {
               <Link href="#about" className="text-slate-300 hover:text-white transition-colors">
                 About
               </Link>
-              <Link href="/dashboard">
+              <Link href="/auth">
                 <Button variant="ghost" className="text-slate-300 hover:text-white">
                   Login
                 </Button>
               </Link>
-              <Link href="/dashboard">
+              <Link href="/auth">
                 <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white">
                   Get Started
                 </Button>
@@ -148,12 +148,12 @@ export default function LandingPage() {
               <Link href="#about" className="block text-slate-300 hover:text-white py-2">
                 About
               </Link>
-              <Link href="/dashboard">
+              <Link href="/auth">
                 <Button variant="ghost" className="w-full text-slate-300 hover:text-white">
                   Login
                 </Button>
               </Link>
-              <Link href="/dashboard">
+              <Link href="/auth">
                 <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white">
                   Get Started
                 </Button>
@@ -183,7 +183,7 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/dashboard">
+            <Link href="/auth">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-6 text-lg">
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -292,7 +292,7 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/dashboard">
+                <Link href={plan.id === 'free' ? '/auth' : `/checkout?plan=${plan.id}`}>
                   <Button 
                     className={`w-full ${
                       plan.popular 
@@ -319,7 +319,7 @@ export default function LandingPage() {
             <p className="text-xl text-slate-300 mb-8">
               Join thousands of men who are elevating their grooming and style game
             </p>
-            <Link href="/dashboard">
+            <Link href="/auth">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-12 py-6 text-lg">
                 Start Your Journey
                 <ArrowRight className="ml-2 w-5 h-5" />

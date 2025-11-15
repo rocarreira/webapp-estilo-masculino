@@ -8,7 +8,8 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
-    detectSessionInUrl: true
+    detectSessionInUrl: true,
+    flowType: 'pkce'
   }
 });
 
@@ -19,7 +20,8 @@ export const auth = {
       email,
       password,
       options: {
-        data: metadata
+        data: metadata,
+        emailRedirectTo: `${typeof window !== 'undefined' ? window.location.origin : ''}/auth/callback`
       }
     });
   },
@@ -35,7 +37,7 @@ export const auth = {
     return await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`
+        redirectTo: `${typeof window !== 'undefined' ? window.location.origin : ''}/auth/callback`
       }
     });
   },
